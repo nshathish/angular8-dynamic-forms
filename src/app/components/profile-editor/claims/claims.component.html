@@ -1,0 +1,28 @@
+<div [formGroup]="form">
+  <h2>Claim Details <button type="button" class="btn btn-sm btn-danger" (click)="addClaim()">add</button> </h2>
+  <div formGroupName="claims">
+    <div *ngFor="let claim of claims.controls; let i=index">
+      <div [formGroupName]="i">
+        <h5>Claim {{ i + 1 }}</h5>
+        <div class="form-group">
+          <label>
+            Date:
+            <input type="date" formControlName="date" class="form-control">
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            Claim Type:
+            <select formControlName="claimType" class="form-control">
+              <option value="">--SELECT--</option>
+              <option value="accident">Accident</option>
+              <option value="fire-theft">Fire &Theft</option>
+              <option value="persnoal-injury">Personal Injury</option>
+            </select>
+          </label>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

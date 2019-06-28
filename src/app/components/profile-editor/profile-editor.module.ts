@@ -6,6 +6,7 @@ import { AddressComponent } from './address/address.component';
 import { AliasesComponent } from './aliases/aliases.component';
 import { ProfileEditorRoutingModule } from './profile-editor-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ClaimsComponent } from './claims/claims.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PersonalComponent,
     AddressComponent,
     AliasesComponent,
+    ClaimsComponent,
   ],
   imports: [
     CommonModule,

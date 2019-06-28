@@ -1,19 +1,10 @@
 import { ValidatorFn } from '@angular/forms';
-
-export enum ControlType {
-  Group,
-  Array,
-  Control
-}
-
-export interface ModelControlBase {
-  [key: string]: ModelControl;
-}
+import { ControlTypesEnum } from '../models/control-types.enum';
 
 export interface ModelControl {
   name: string;
   label?: string;
-  controlType: ControlType;
+  controlType: ControlTypesEnum;
   controls?: { [key: string]: ModelControl },
   validators?: ValidatorFn[]
 }

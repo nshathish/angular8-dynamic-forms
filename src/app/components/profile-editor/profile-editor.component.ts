@@ -6,7 +6,8 @@ import { FormService } from '../../core/services/form.service';
 import { StorageService } from '../../core/services/storage.service';
 
 import { ProfileEditorConfig } from './profile-editor.config';
-import { FeatureTypes } from '../../core/models/feature-types';
+import { FeatureTypesEnum } from '../../core/models/feature-types.enum';
+
 
 @Component({
   selector: 'app-profile-editor',
@@ -25,6 +26,7 @@ export class ProfileEditorComponent implements OnInit {
     route: ActivatedRoute
   ) {
     this.form = formService.createForm(this.profileEditorConfig);
+    console.log(this.form);
     const formData = route.snapshot.data['formData'];
     if (formData) {
       formService.patchForm(this.form, formData);
@@ -36,15 +38,11 @@ export class ProfileEditorComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.form.value;
-    StorageService.store(FeatureTypes.ProfileEditor, formValue);
+    StorageService.store(FeatureTypesEnum.ProfileEditor, formValue);
     this.router.navigate(['/review']);
   }
 
   ngOnInit() {
-    /*const formValue = StorageService.retreive(FeatureTypes.ProfileEditor);
-    if (formValue) {
-      this.form.patchValue(formValue);
-    }*/
   }
 
 }
