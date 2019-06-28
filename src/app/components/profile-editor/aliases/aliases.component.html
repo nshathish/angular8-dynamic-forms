@@ -1,0 +1,13 @@
+<div [formGroup]="form">
+  <div formArrayName="aliases">
+    <h2>Aliases <button type="button" class="btn btn-sm btn-success" (click)="addAlias()">add</button></h2>
+    <ul class="list-unstyled">
+      <li *ngFor="let alias of aliases.controls; let i=index">
+        <label>
+          Alias {{ i + 1 }}:
+          <input type="text" [formControlName]="i" class="form-control">
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>

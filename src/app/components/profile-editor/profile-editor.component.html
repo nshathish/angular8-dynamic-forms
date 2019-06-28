@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <app-personal [form]="form"></app-personal>
+  <app-address [form]="form"></app-address>
+  <app-aliases [form]="form"></app-aliases>
+
+  <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+
+
+
+
