@@ -7,6 +7,12 @@ import { StorageService } from '../../core/services/storage.service';
 
 import { ProfileEditorConfig } from './profile-editor.config';
 import { FeatureTypesEnum } from '../../core/models/feature-types.enum';
+import { Observable } from 'rxjs';
+import { Person } from './models/person';
+import { Address } from './models/address';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../reducers';
+import { PersonActions } from './actions';
 
 
 @Component({
@@ -20,26 +26,31 @@ export class ProfileEditorComponent implements OnInit {
 
   profileEditorConfig = ProfileEditorConfig;
 
+  person$: Observable<Person>;
+  address$: Observable<Address>;
+
   constructor(
+    private store: Store<AppState>,
     private formService: FormService,
     private router: Router,
     route: ActivatedRoute
   ) {
     this.form = formService.createForm(this.profileEditorConfig);
-    console.log(this.form);
-    const formData = route.snapshot.data['formData'];
+    this.person$ = store.select(s => s['profile'].person);
+    this.address$ = store.select(s => s['profile'].address);
+
+    /*const formData = route.snapshot.data['formData'];
     if (formData) {
       formService.patchForm(this.form, formData);
-    }
-
-    console.log(formData);
-
+    }*/
   }
 
   onSubmit() {
     const formValue = this.form.value;
+    console.log(formValue['person']);
     StorageService.store(FeatureTypesEnum.ProfileEditor, formValue);
     this.router.navigate(['/review']);
+    this.store.dispatch(PersonActions.savePersonDetails({ person: formValue['person'] }));
   }
 
   ngOnInit() {

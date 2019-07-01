@@ -4,6 +4,7 @@
     <div *ngFor="let claim of claims.controls; let i=index">
       <div [formGroupName]="i">
         <h5>Claim {{ i + 1 }}</h5>
+        <hr>
         <div class="form-group">
           <label>
             Date:
@@ -21,7 +22,6 @@
             </select>
           </label>
         </div>
-        <hr>
       </div>
     </div>
   </div>

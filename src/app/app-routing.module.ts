@@ -5,8 +5,8 @@ import { ReviewComponent } from './components/review/review.component';
 
 const routes: Routes = [
   {
-    path: 'profile-editor',
-    loadChildren: () => import('./components/profile-editor/profile-editor.module').then(m => m.ProfileEditorModule)
+    path: 'menu',
+    loadChildren: () => import('./components/menu/menu.module').then(m => m.MenuModule)
   },
   {
     path: 'review',
@@ -14,12 +14,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'profile-editor',
+    redirectTo: 'menu',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '/',
+    redirectTo: 'menu',
   }
 ];
 

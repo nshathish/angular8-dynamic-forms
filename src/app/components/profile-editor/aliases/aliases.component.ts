@@ -21,7 +21,6 @@ export class AliasesComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('onINit', this.form);
   }
 
 }

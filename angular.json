@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "forms-lab3"
+    }
+  },
+  "defaultProject": "forms-lab3",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

@@ -1,10 +1,11 @@
 import { Validators } from '@angular/forms';
+
 import { ControlTypesEnum } from '../../core/models/control-types.enum';
 import { ModelControlMap } from '../../core/interfaces/model-control-map';
 
 export const ProfileEditorConfig: ModelControlMap = {
-  personal: {
-    name: 'personal',
+  person: {
+    name: 'person',
     controlType: ControlTypesEnum.Group,
     controls: {
       firstName: {
